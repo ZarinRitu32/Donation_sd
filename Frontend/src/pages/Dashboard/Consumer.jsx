@@ -1,10 +1,10 @@
-import moment from "moment";
 import React, { useEffect, useState } from "react";
-import Layout from "../components/shared/Layout/Layout";
-import API from "../services/API";
+import Layout from "../../components/shared/Layout/Layout";
+import moment from "moment";
+import API from "../../services/API";
 import { useSelector } from "react-redux";
 
-const Donation = () => {
+const Consumer = () => {
   const { user } = useSelector((state) => state.auth);
   const [data, setData] = useState([]);
 
@@ -13,13 +13,12 @@ const Donation = () => {
     try {
       const { data } = await API.post("/inventory/get-inventory-hospital", {
         filters: {
-          inventoryType: "in",
-          donar: user?._id,
+          inventoryType: "out",
+          hospital: user?._id,
         },
       });
       if (data?.success) {
         setData(data?.inventory);
-        console.log(data);
       }
     } catch (error) {
       console.log(error);
@@ -48,7 +47,7 @@ const Donation = () => {
               <tr key={record._id} className="hover:bg-gray-50">
                 <td className="py-3 px-4 text-sm text-gray-800 border-b">{record.bloodGroup}</td>
                 <td className="py-3 px-4 text-sm text-gray-800 border-b">{record.inventoryType}</td>
-                <td className="py-3 px-4 text-sm text-gray-800 border-b">{record.quantity} (ML)</td>
+                <td className="py-3 px-4 text-sm text-gray-800 border-b">{record.quantity}</td>
                 <td className="py-3 px-4 text-sm text-gray-800 border-b">{record.email}</td>
                 <td className="py-3 px-4 text-sm text-gray-800 border-b">{moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}</td>
               </tr>
@@ -60,4 +59,4 @@ const Donation = () => {
   );
 };
 
-export default Donation;
+export default Consumer;
