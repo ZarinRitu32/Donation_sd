@@ -5,11 +5,11 @@ import moment from "moment";
 
 const Donar = () => {
   const [data, setData] = useState([]);
-
-  // Fetch donor records
+  //find donar records
   const getDonars = async () => {
     try {
       const { data } = await API.get("/inventory/get-donars");
+      //   console.log(data);
       if (data?.success) {
         setData(data?.donars);
       }
@@ -24,28 +24,26 @@ const Donar = () => {
 
   return (
     <Layout>
-      <div className="container mx-auto mt-6 px-4">
-        <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
-          <thead>
-            <tr className="bg-gray-100">
-              <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700 border-b">Name</th>
-              <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700 border-b">Email</th>
-              <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700 border-b">Phone</th>
-              <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700 border-b">Date</th>
+      <table className="table ">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data?.map((record) => (
+            <tr key={record._id}>
+              <td>{record.name || record.organisationName + " (ORG)"}</td>
+              <td>{record.email}</td>
+              <td>{record.phone}</td>
+              <td>{moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}</td>
             </tr>
-          </thead>
-          <tbody>
-            {data?.map((record) => (
-              <tr key={record._id} className="hover:bg-gray-50">
-                <td className="py-3 px-4 text-sm text-gray-800 border-b">{record.name || record.organisationName + " (ORG)"}</td>
-                <td className="py-3 px-4 text-sm text-gray-800 border-b">{record.email}</td>
-                <td className="py-3 px-4 text-sm text-gray-800 border-b">{record.phone}</td>
-                <td className="py-3 px-4 text-sm text-gray-800 border-b">{moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
     </Layout>
   );
 };

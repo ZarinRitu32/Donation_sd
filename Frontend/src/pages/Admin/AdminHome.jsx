@@ -4,17 +4,16 @@ import { useSelector } from "react-redux";
 
 const AdminHome = () => {
   const { user } = useSelector((state) => state.auth);
-  
   return (
     <Layout>
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col mt-4">
-          <h1 className="text-3xl font-semibold">
-            Welcome Admin <i className="text-green-500">{user?.name}</i>
+      <div className="container">
+        <div className="d-felx flex-column mt-4">
+          <h1>
+            Welcome Admin <i className="text-success">{user?.name}</i>
           </h1>
-          <h3 className="text-xl mt-2">Manage Blood Bank App</h3>
-          <hr className="my-4" />
-          <p className="text-lg text-gray-700">
+          <h3>Manage Blood Bank App </h3>
+          <hr />
+          <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
             explicabo animi blanditiis incidunt dicta quia, quibusdam facere
             corporis! Dolores, reprehenderit cum sed repellat laudantium

@@ -9,20 +9,16 @@ const InputType = ({
   name,
 }) => {
   return (
-    <div className="mb-4">
-      <label
-        htmlFor={labelFor}
-        className="block text-gray-700 font-medium mb-1"
-      >
+    <div className="mb-3">
+      <label htmlFor={labelFor} className="form-label">
         {labelText}
       </label>
       <input
         type={inputType}
-        id={labelFor}
+        className="form-control"
         name={name}
         value={value}
         onChange={onChange}
-        className="w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-red-400 transition"
       />
     </div>
   );

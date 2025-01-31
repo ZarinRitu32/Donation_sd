@@ -7,32 +7,40 @@ const Analytics = () => {
   const [data, setData] = useState([]);
   const [inventoryData, setInventoryData] = useState([]);
   const colors = [
-    "#884A39", "#C38154", "#FFC26F", "#4F709C", "#4942E4", "#0079FF", "#FF0060", "#22A699",
+    "#884A39",
+    "#C38154",
+    "#FFC26F",
+    "#4F709C",
+    "#4942E4",
+    "#0079FF",
+    "#FF0060",
+    "#22A699",
   ];
-
-  // GET BLOOD GROUP DATA
+  //GET BLOOD GROUP DATA
   const getBloodGroupData = async () => {
     try {
       const { data } = await API.get("/analytics/bloodGroups-data");
       if (data?.success) {
         setData(data?.bloodGroupData);
+        // console.log(data);
       }
     } catch (error) {
       console.log(error);
     }
   };
 
-  // Lifecycle method
+  //lifrecycle method
   useEffect(() => {
     getBloodGroupData();
   }, []);
 
-  // Get function for blood records
+  //get function
   const getBloodRecords = async () => {
     try {
       const { data } = await API.get("/inventory/get-recent-inventory");
       if (data?.success) {
         setInventoryData(data?.inventory);
+        console.log(data);
       }
     } catch (error) {
       console.log(error);
@@ -42,57 +50,53 @@ const Analytics = () => {
   useEffect(() => {
     getBloodRecords();
   }, []);
-
   return (
     <>
       <Header />
-      {/* Blood Group Data Cards */}
-      <div className="flex flex-wrap gap-4 my-6">
+      <div className="d-flex flex-row flex-wrap">
         {data?.map((record, i) => (
           <div
-            className="card w-full md:w-72 p-4"
+            className="card m-2 p-1"
             key={i}
-            style={{ backgroundColor: `${colors[i]}` }}
+            style={{ width: "18rem", backgroundColor: `${colors[i]}` }}
           >
             <div className="card-body">
-              <h1 className="text-white text-xl font-semibold text-center mb-4 bg-black py-2 rounded">
+              <h1 className="card-title bg-light text-dark text-center mb-3">
                 {record.bloodGroup}
               </h1>
-              <p className="text-white">
-                Total In: <span className="font-bold">{record.totalIn}</span> (ML)
+              <p className="card-text">
+                Total In : <b>{record.totalIn}</b> (ML)
               </p>
-              <p className="text-white">
-                Total Out: <span className="font-bold">{record.totalOut}</span> (ML)
+              <p className="card-text">
+                Total Out : <b>{record.totalOut}</b> (ML)
               </p>
             </div>
-            <div className="card-footer bg-black text-white text-center py-2 rounded">
-              Total Available: <span className="font-bold">{record.availabeBlood}</span> (ML)
+            <div className="card-footer text-light bg-dark text-center">
+              Total Available : <b>{record.availabeBlood}</b> (ML)
             </div>
           </div>
         ))}
       </div>
-
-      {/* Recent Blood Transactions Table */}
-      <div className="container mx-auto my-8 px-4">
-        <h1 className="text-2xl font-bold mb-4">Recent Blood Transactions</h1>
-        <table className="min-w-full table-auto bg-white shadow-md rounded-lg overflow-hidden">
+      <div className="container my-3">
+        <h1 className="my-3">Recent Blood Transactions</h1>
+        <table className="table ">
           <thead>
             <tr>
-              <th className="py-2 px-4 text-left border-b">Blood Group</th>
-              <th className="py-2 px-4 text-left border-b">Inventory Type</th>
-              <th className="py-2 px-4 text-left border-b">Quantity</th>
-              <th className="py-2 px-4 text-left border-b">Donor Email</th>
-              <th className="py-2 px-4 text-left border-b">Time & Date</th>
+              <th scope="col">Blood Group</th>
+              <th scope="col">Inventory Type</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Donar Email</th>
+              <th scope="col">TIme & Date</th>
             </tr>
           </thead>
           <tbody>
             {inventoryData?.map((record) => (
-              <tr key={record._id} className="border-b">
-                <td className="py-2 px-4">{record.bloodGroup}</td>
-                <td className="py-2 px-4">{record.inventoryType}</td>
-                <td className="py-2 px-4">{record.quantity} (ML)</td>
-                <td className="py-2 px-4">{record.email}</td>
-                <td className="py-2 px-4">{moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}</td>
+              <tr key={record._id}>
+                <td>{record.bloodGroup}</td>
+                <td>{record.inventoryType}</td>
+                <td>{record.quantity} (ML)</td>
+                <td>{record.email}</td>
+                <td>{moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}</td>
               </tr>
             ))}
           </tbody>

@@ -12,12 +12,13 @@ const HomePage = () => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
 
-  // Fetch blood records
+  //get function
   const getBloodRecords = async () => {
     try {
       const { data } = await API.get("/inventory/get-inventory");
       if (data?.success) {
         setData(data?.inventory);
+        // console.log(data);
       }
     } catch (error) {
       console.log(error);
@@ -27,54 +28,52 @@ const HomePage = () => {
   useEffect(() => {
     getBloodRecords();
   }, []);
-
-  if (user?.role === "admin") {
-    navigate("/admin");
-  }
-
   return (
     <Layout>
-      {error && <span className="text-red-500">{alert(error)}</span>}
+      {user?.role === "admin" && navigate("/admin")}
+      {error && <span>{alert(error)}</span>}
       {loading ? (
         <Spinner />
       ) : (
-        <div className="container mx-auto p-4">
-          <h4
-            className="flex items-center cursor-pointer text-green-600 mb-4"
-            data-bs-toggle="modal"
-            data-bs-target="#staticBackdrop"
-          >
-            <i className="fa-solid fa-plus mr-2 py-2"></i>
-            Add Inventory
-          </h4>
-
-          <table className="min-w-full table-auto bg-white shadow-md rounded-lg overflow-hidden">
-            <thead className="bg-gray-100">
-              <tr>
-                <th className="py-3 px-4 text-sm font-semibold text-gray-700 border-b">Blood Group</th>
-                <th className="py-3 px-4 text-sm font-semibold text-gray-700 border-b">Inventory Type</th>
-                <th className="py-3 px-4 text-sm font-semibold text-gray-700 border-b">Quantity</th>
-                <th className="py-3 px-4 text-sm font-semibold text-gray-700 border-b">Donar Email</th>
-                <th className="py-3 px-4 text-sm font-semibold text-gray-700 border-b">Time & Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data?.map((record) => (
-                <tr key={record._id} className="hover:bg-gray-50">
-                  <td className="py-3 px-4 text-sm text-gray-800 border-b">{record.bloodGroup}</td>
-                  <td className="py-3 px-4 text-sm text-gray-800 border-b">{record.inventoryType}</td>
-                  <td className="py-3 px-4 text-sm text-gray-800 border-b">{record.quantity} (ML)</td>
-                  <td className="py-3 px-4 text-sm text-gray-800 border-b">{record.email}</td>
-                  <td className="py-3 px-4 text-sm text-gray-800 border-b">
-                    {moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}
-                  </td>
+        <>
+          <div className="container">
+            <h4
+              className="ms-4"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+              style={{ cursor: "pointer" }}
+            >
+              <i className="fa-solid fa-plus text-success py-4"></i>
+              Add Inventory
+            </h4>
+            <table className="table ">
+              <thead>
+                <tr>
+                  <th scope="col">Blood Group</th>
+                  <th scope="col">Inventory Type</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Donar Email</th>
+                  <th scope="col">TIme & Date</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {data?.map((record) => (
+                  <tr key={record._id}>
+                    <td>{record.bloodGroup}</td>
+                    <td>{record.inventoryType}</td>
+                    <td>{record.quantity} (ML)</td>
+                    <td>{record.email}</td>
+                    <td>
+                      {moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
 
-          <Modal />
-        </div>
+            <Modal />
+          </div>
+        </>
       )}
     </Layout>
   );
