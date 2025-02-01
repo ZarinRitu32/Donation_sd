@@ -8,16 +8,16 @@ const Login = () => {
   
     return (
       <div className="login-container">
-        {/* Left Side (Image) */}
+        {/* LEFT SIDE (Image) */}
         <div className="login-image">
           <img src={banner1} alt="Blood Donation" />
         </div>
   
-        {/* Right Side (Login Form) */}
+        {/* RIGHT SIDE (Login Form) */}
         <div className="login-form">
           <h2>Login Page</h2>
   
-          {/* Role Selection */}
+          {/* ROLE SELECTION */}
           <div className="role-selection">
             {["Donor", "Admin", "Hospital", "Organisation"].map((item) => (
               <label key={item}>
@@ -30,22 +30,22 @@ const Login = () => {
                 />
                 {item}
               </label>
-))}
-</div>
+          ))}
+        </div>
 
-{/* Login Form */}
+{/* LOGIN FORM */}
 <form>
   <div className="input-group">
     <label>Email</label>
-    <input type="email" placeholder="Enter your email" />
+    <input type="email" placeholder="Enter Your Email" />
   </div>
 
   <div className="input-group">
     <label>Password</label>
-    <input type="password" placeholder="Enter your password" />
+    <input type="password" placeholder="Enter Your Password" />
   </div>
 
-{/* Register Link */}
+{/* REGISTER LINK */}
 <p className="register-text">
             Not registered yet?{" "}
             <Link to="/register" className="register-link">
@@ -53,7 +53,7 @@ const Login = () => {
             </Link>
           </p>
 
-          {/* Login Button */}
+          {/* LOGIN BUTTON */}
           <button className="login-button">Login</button>
         </form>
       </div>
