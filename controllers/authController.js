@@ -79,6 +79,4 @@ const loginController = async (req, res) => {
   }
 };
 
-
-
 module.exports = {registerController,loginController};
