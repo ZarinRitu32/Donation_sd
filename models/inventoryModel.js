@@ -1,6 +1,5 @@
-const mongoose = require("mongoose");
-
-const inventorySchema = new mongoose.Schema(
+const mongoose = require("mongoose")
+const inventorySchema = new Schema(
   {
     inventoryType: {
       type: String,
@@ -21,19 +20,19 @@ const inventorySchema = new mongoose.Schema(
       required: [true, "Donar Email is Required"],
     },
     organisation: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "users",
       required: [true, "organisation is require"],
     },
     hospital: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "users",
       required: function () {
         return this.inventoryType === "out";
       },
     },
     donar: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "users",
       required: function () {
         return this.inventoryType === "in";
@@ -43,4 +42,4 @@ const inventorySchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Inventory")
+export default model("Inventory",inventorySchema)
