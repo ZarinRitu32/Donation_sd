@@ -23,6 +23,7 @@ app.use(morgan("dev"));
 // routs
 // 1 test routs
 app.use("/api/v1/test", require("./routes/testRouts"));
+app.use("/api/v1/auth",require("./routes/authRoutes"));
 
 // register route
 //app.use("/api/v1/auth", require("./routes/authRoutes"));
