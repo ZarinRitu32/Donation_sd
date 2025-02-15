@@ -1,5 +1,4 @@
 import React from "react";
-import "./Analysis.css";
 import "../assets/css/Analysis.css";
 
 const Analysis = () => {
