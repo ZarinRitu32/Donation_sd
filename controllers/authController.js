@@ -36,4 +36,8 @@ const registerController = async (req,res) => {
 };
 
 
-module.exports = {registerController};
+const currentUserController = async (req, res) => {}
+
+
+
+module.exports = {registerController,loginController};
