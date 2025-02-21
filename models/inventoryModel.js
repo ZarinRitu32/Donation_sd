@@ -1,28 +1,30 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
+const { Schema } = mongoose; // ✅ Import Schema properly
+
 const inventorySchema = new Schema(
   {
     inventoryType: {
       type: String,
-      required: [true, "inventory type require"],
+      required: [true, "Inventory type required"],
       enum: ["in", "out"],
     },
     bloodGroup: {
       type: String,
-      required: [true, "blood group is require"],
+      required: [true, "Blood group is required"],
       enum: ["O+", "O-", "AB+", "AB-", "A+", "A-", "B+", "B-"],
     },
     quantity: {
       type: Number,
-      require: [true, "blood quanity is require"],
+      required: [true, "Blood quantity is required"], // ✅ Fixed typo "require" -> "required"
     },
     email: {
       type: String,
-      required: [true, "Donar Email is Required"],
+      required: [true, "Donor Email is required"], // ✅ Fixed typo "Donar" -> "Donor"
     },
     organisation: {
       type: Schema.Types.ObjectId,
       ref: "users",
-      required: [true, "organisation is require"],
+      required: [true, "Organisation is required"],
     },
     hospital: {
       type: Schema.Types.ObjectId,
@@ -31,7 +33,8 @@ const inventorySchema = new Schema(
         return this.inventoryType === "out";
       },
     },
-    donar: {
+    donor: {
+      // ✅ Fixed typo "donar" -> "donor"
       type: Schema.Types.ObjectId,
       ref: "users",
       required: function () {
@@ -42,4 +45,6 @@ const inventorySchema = new Schema(
   { timestamps: true }
 );
 
-export default model("Inventory",inventorySchema)
+// ❌ Wrong: export default model("Inventory", inventorySchema);
+// ✅ Correct:
+module.exports = mongoose.model("Inventory", inventorySchema);
