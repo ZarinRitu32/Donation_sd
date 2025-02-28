@@ -1,26 +1,43 @@
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
 
 module.exports = async (req, res, next) => {
-    try {
-      const token = req?.headers["authorization"].split(" ")[1];
-      jwt.verify(token, process.env.JWT_SECRET, (error, decode) => {
-        if (error) {
-          return res.status(401).send({
-            success: false,
-            message: "Auth Failed",
-          });
-        } else {
-          req.body.userId = decode.userId;
-          next();
-        }
-      });
-    } catch (error) {
-      console.log(error);
-      return res.status(401).send({
+  try {
+    // Check if authorization header exists
+    if (!req.headers.authorization) {
+      return res.status(401).json({
         success: false,
-        error,
-        message: "Auth Failed",
+        message: "No authorization token provided",
       });
     }
-  };
 
+    const tokenParts = req.headers.authorization.split(" ");
+
+    // Ensure it follows the "Bearer <token>" format
+    if (tokenParts.length !== 2 || tokenParts[0] !== "Bearer") {
+      return res.status(401).json({
+        success: false,
+        message: "Invalid token format",
+      });
+    }
+
+    const token = tokenParts[1];
+
+    jwt.verify(token, process.env.JWT_SECRET, (error, decoded) => {
+      if (error) {
+        return res.status(401).json({
+          success: false,
+          message: "Auth Failed - Invalid Token",
+        });
+      }
+
+      req.body.userId = decoded.userId;
+      next();
+    });
+  } catch (error) {
+    console.log("Middleware Error:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Internal Server Error",
+    });
+  }
+};

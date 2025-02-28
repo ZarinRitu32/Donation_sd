@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { LogoIcon } from "../../shared/Icons";
 import { OrganistionMenue } from "./menus/organisationMenu";
 import { hospitalMenue } from "./menus/hospitalMenu";
-import { donarMenue } from "./menus/donorMenu";
+import { donorMenue } from "./menus/donorMenu";
 import { adminMenue } from "./menus/adminMenu";
 import { useSelector } from "react-redux";
 import { printMenu } from "./menus/PrintMenu";
@@ -17,8 +17,8 @@ function SideBar() {
       setnavigation(OrganistionMenue);
     } else if (user?.role === "hospital") {
       setnavigation(hospitalMenue);
-    } else if (user?.role === "donar") {
-      setnavigation(donarMenue);
+    } else if (user?.role === "donor") {
+      setnavigation(donorMenue);
     } else if (user?.role === "admin") {
       setnavigation(adminMenue);
     }
