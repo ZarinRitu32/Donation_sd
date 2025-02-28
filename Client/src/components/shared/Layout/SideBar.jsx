@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { LogoIcon } from "../../shared/Icons";
 import { OrganistionMenue } from "./menus/organisationMenu";
 import { hospitalMenue } from "./menus/hospitalMenu";
-import { donarMenue } from "./menus/donarMenu";
+import { donarMenue } from "./menus/donorMenu";
 import { adminMenue } from "./menus/adminMenu";
 import { useSelector } from "react-redux";
 import { printMenu } from "./menus/PrintMenu";

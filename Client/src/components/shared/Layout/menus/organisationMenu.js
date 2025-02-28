@@ -1,6 +1,6 @@
 import {
   ArchiveBoxArrowDownIcon,
-  DonarIcon,
+  DonorIcon,
   HospitalIcon,
   AnalyticsIcon,
 } from "../../../shared/Icons";
@@ -12,7 +12,7 @@ export const OrganistionMenue = [
     icon: ArchiveBoxArrowDownIcon,
     current: true,
   },
-  { name: "Donar", href: "/donar", icon: DonarIcon, current: false },
+  { name: "Donor", href: "/donor", icon: DonorIcon, current: false },
   { name: "Hospital", href: "/hospital", icon: HospitalIcon, current: false },
   {
     name: "analytics",

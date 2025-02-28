@@ -1,10 +1,10 @@
-import { DonarIcon, HospitalIcon, NgoIcon } from "../../../shared/Icons";
+import { DonorIcon, HospitalIcon, NgoIcon } from "../../../shared/Icons";
 
 export const adminMenue = [
   {
-    name: "Donar List",
-    href: "/donar-list",
-    icon: DonarIcon,
+    name: "Donor List",
+    href: "/donor-list",
+    icon: DonorIcon,
     current: true,
   },
   {

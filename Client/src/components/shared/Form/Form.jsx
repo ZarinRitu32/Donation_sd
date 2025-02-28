@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const roles = [
   { id: "admin", title: "Admin" },
   { id: "oraganisation", title: "Oraganisation" },
-  { id: "donar", title: "Donar" },
+  { id: "donor", title: "Donor" },
   { id: "hospital", title: "Hospital" },
 ];
 
@@ -63,7 +63,7 @@ function Form({ formType, formTitle, submitBtn }) {
                   value={roles.id}
                   name="notification-method"
                   type="radio"
-                  defaultChecked={roles.id === "doonar"}
+                  defaultChecked={roles.id === "doonor"}
                   onClick={(e) => {
                     setRole(e.target.value);
                   }}
@@ -125,7 +125,7 @@ function Form({ formType, formTitle, submitBtn }) {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                   {/* remaining register fields */}
-                  {(role === "admin" || role === "donar") && (
+                  {(role === "admin" || role === "donor") && (
                     <InputType
                       labelText={"Name"}
                       labelFor={"forName"}
@@ -138,10 +138,10 @@ function Form({ formType, formTitle, submitBtn }) {
 
                   {role === "oraganisation" && (
                     <InputType
-                      labelText={"organisationName"}
+                      labelText={"OrganisationName"}
                       labelFor={"forOrganisationName"}
                       inputType={"text"}
-                      name={"organisationName"}
+                      name={"OrganisationName"}
                       value={organisationName}
                       onChange={(e) => setOrganisationName(e.target.value)}
                     />
@@ -151,7 +151,7 @@ function Form({ formType, formTitle, submitBtn }) {
                       labelText={"HospitalName"}
                       labelFor={"forHospitalName"}
                       inputType={"text"}
-                      name={"hospitalName"}
+                      name={"HospitalName"}
                       value={hospitalName}
                       onChange={(e) => setHospitalName(e.target.value)}
                     />
