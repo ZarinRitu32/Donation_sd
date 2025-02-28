@@ -22,21 +22,21 @@ app.use(morgan("dev"));
 
 // routs
 // 1 test routs
-app.use("/api/v1/test", require("./routes/testRouts"));
-app.use("/api/v1/auth",require("./routes/authRoutes"));
-app.use('/api/v1/inventory',require('./routes/inventoryRoutes'));
+//app.use("/api/v1/test", require("./routes/testRouts"));
+//app.use("/api/v1/auth",require("./routes/authRoutes"));
+//app.use('/api/v1/inventory',require('./routes/inventoryRoutes'));
 
 // register route
-//app.use("/api/v1/auth", require("./routes/authRoutes"));
+app.use("/api/v1/auth", require("./routes/authRoutes"));
 
 // inventory route
-//app.use("/api/v1/inventory", require("./routes/inventoryRoutes"));
+app.use("/api/v1/inventory", require("./routes/inventoryRoutes"));
 
 // analytics route
-//app.use("/api/v1/analytics", require("./routes/analyticsRoutes"));
+app.use("/api/v1/analytics", require("./routes/analyticsRoutes"));
 
 // admin route
-//app.use("/api/v1/admin", require("./routes/adminRoutes"));
+app.use("/api/v1/admin", require("./routes/adminRoutes"));
 
 // port
 const PORT = process.env.PORT || 8080;
