@@ -15,8 +15,8 @@ export const OrganistionMenue = [
   { name: "Donor", href: "/donor", icon: DonorIcon, current: false },
   { name: "Hospital", href: "/hospital", icon: HospitalIcon, current: false },
   {
-    name: "analytics",
-    href: "/analytics",
+    name: "Analytics",
+    href: "/Analytics",
     icon: AnalyticsIcon,
     current: false,
   },

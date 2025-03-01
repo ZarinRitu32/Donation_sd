@@ -8,7 +8,7 @@ function OrgList() {
   const getOrganisationData = async (req, res) => {
     try {
       const { data } = await API.get("/admin/organisation-list");
-      setData(data.organizationData);
+      setData(data.organisationData);
     } catch (error) {
       console.log(error);
     }
