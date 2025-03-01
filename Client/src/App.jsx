@@ -5,7 +5,7 @@ import Register from "./pages/auth/Register";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProtectedRoute from "./components/shared/Routes/ProtectedRoute";
-import Organisation from "./pages/DashBoard/Organisation";
+import Organisation from "./pages/DashBoard/Organisation"; // Keep only one import
 import { Donor } from "./pages/DashBoard/Donor";
 import Hospital from "./pages/DashBoard/Hospital";
 import Consumer from "./pages/DashBoard/Consumer";
@@ -17,7 +17,6 @@ import OrgList from "./pages/Admin/OrgList";
 import HomePage from "./pages/HomePage";
 import Analytics from "./pages/Analytics";
 import Inventory from "./pages/DashBoard/Inventory";
-import Organisation from "./pages/DashBoard/Organisation";
 
 function App() {
   return (
@@ -50,7 +49,7 @@ function App() {
           }
         />
         <Route
-          path="/orgnaisation"
+          path="/organisation"
           element={<ProtectedRoute>{<Organisation />}</ProtectedRoute>}
         />
         <Route
