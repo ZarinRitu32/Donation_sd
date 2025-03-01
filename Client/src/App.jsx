@@ -17,67 +17,121 @@ import OrgList from "./pages/Admin/OrgList";
 import HomePage from "./pages/HomePage";
 import Analytics from "./pages/Analytics";
 import Inventory from "./pages/DashBoard/Inventory";
+import Organisation from "./pages/DashBoard/Organisation";
 
 function App() {
   return (
     <>
       <ToastContainer />
       <Routes>
+        {/* Protected Routes */}
         <Route
           path="/home"
-          element={<ProtectedRoute>{<HomePage />}</ProtectedRoute>}
+          element={
+            <ProtectedRoute>
+              <HomePage />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/"
-          element={<ProtectedRoute>{<Register />}</ProtectedRoute>}
+          element={
+            <ProtectedRoute>
+              <Register />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/inventory"
-          element={<ProtectedRoute>{<Inventory />}</ProtectedRoute>}
+          element={
+            <ProtectedRoute>
+              <Inventory />
+            </ProtectedRoute>
+          }
         />
         <Route
-          path="/organisation"
+          path="/orgnaisation"
           element={<ProtectedRoute>{<Organisation />}</ProtectedRoute>}
         />
         <Route
           path="/donor"
-          element={<ProtectedRoute>{<Donor />}</ProtectedRoute>}
+          element={
+            <ProtectedRoute>
+              <Donor />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/donation"
-          element={<ProtectedRoute>{<Donation />}</ProtectedRoute>}
+          element={
+            <ProtectedRoute>
+              <Donation />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/hospital"
-          element={<ProtectedRoute>{<Hospital />}</ProtectedRoute>}
+          element={
+            <ProtectedRoute>
+              <Hospital />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/consumer"
-          element={<ProtectedRoute>{<Consumer />}</ProtectedRoute>}
+          element={
+            <ProtectedRoute>
+              <Consumer />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/admin"
-          element={<ProtectedRoute>{<AdminHome />}</ProtectedRoute>}
+          element={
+            <ProtectedRoute>
+              <AdminHome />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/donor-list"
-          element={<ProtectedRoute>{<DonorList />}</ProtectedRoute>}
+          element={
+            <ProtectedRoute>
+              <DonorList />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/hospital-list"
-          element={<ProtectedRoute>{<HospitalList />}</ProtectedRoute>}
+          element={
+            <ProtectedRoute>
+              <HospitalList />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/organisation-list"
-          element={<ProtectedRoute>{<OrgList />}</ProtectedRoute>}
+          element={
+            <ProtectedRoute>
+              <OrgList />
+            </ProtectedRoute>
+          }
         />
-
         <Route
           path="/analytics"
-          element={<ProtectedRoute>{<Analytics />}</ProtectedRoute>}
+          element={
+            <ProtectedRoute>
+              <Analytics />
+            </ProtectedRoute>
+          }
         />
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
+
+        {/* Public Routes */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+        {/* Fallback Route */}
+        <Route path="*" element={<h1>Page Not Found</h1>} />
       </Routes>
     </>
   );
