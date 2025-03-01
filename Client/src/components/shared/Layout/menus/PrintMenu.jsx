@@ -26,7 +26,9 @@ function printMenu(navigation) {
               "group rounded-md py-2 px-2 flex items-center text-xl mx-2 my-2 font-medium"
             )}
           >
-            <item.icon
+
+         
+          <item.icon
               className={classNames(
                 item.current
                   ? "text-gray-500 "
