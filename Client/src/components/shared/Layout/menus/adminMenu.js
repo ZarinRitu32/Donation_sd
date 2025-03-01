@@ -1,23 +1,23 @@
-import {
-    ArchiveBoxArrowDownIcon,
-    DonorIcon,
-    HospitalIcon,
-    AnalyticsIcon,
-  } from "../../../shared/Icons";
-  
-  export const OrganistionMenue = [
-    {
-      name: "Inventory",
-      href: "/home",
-      icon: ArchiveBoxArrowDownIcon,
-      current: true,
-    },
-    { name: "Donor", href: "/donor", icon: DonorIcon, current: false },
-    { name: "Hospital", href: "/hospital", icon: HospitalIcon, current: false },
-    {
-      name: "Analytics",
-      href: "/Analytics",
-      icon: AnalyticsIcon,
-      current: false,
-    },
-  ];
+import { DonorIcon, HospitalIcon, NgoIcon } from "../../../shared/Icons";
+
+
+export const adminMenue = [
+  {
+    name: "Donar List",
+    href: "/donar-list",
+    icon: DonorIcon,
+    current: true,
+  },
+  {
+    name: "hospital-list",
+    href: "/hospital-list",
+    icon: HospitalIcon,
+    current: false,
+  },
+  {
+    name: "Organisation List",
+    href: "/organisation-list",
+    icon: NgoIcon,
+    current: false,
+  },
+];
