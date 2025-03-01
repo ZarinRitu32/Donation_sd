@@ -4,7 +4,7 @@ import API from "../../services/API.JS";
 import OrganisationTable from "../../components/shared/tables/OrganisationTable";
 import { useSelector } from "react-redux";
 
-function Organistion() {
+function Organisation() {
   const [data, setData] = useState([]);
   const { user } = useSelector((state) => state.auth);
 
@@ -12,7 +12,7 @@ function Organistion() {
     if (!user) return;
 
     (async () => {
-      if (user?.role === "donar") {
+      if (user?.role === "donor") {
         const { data } = await API.get("/inventory/get-organisation");
         if (data?.success) {
           setData(() => data.organisations);
@@ -35,4 +35,4 @@ function Organistion() {
     </Layout>
   );
 }
-export default Organistion;
+export default Organisation;

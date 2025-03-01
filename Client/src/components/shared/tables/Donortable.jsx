@@ -1,5 +1,5 @@
 import moment from "moment";
-export default function Donartable({ data, heading }) {
+export default function Donortable({ data, heading }) {
   return (
     <div className="flex md:pl-64 m-8 flex-col">
       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

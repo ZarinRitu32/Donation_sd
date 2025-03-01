@@ -5,14 +5,14 @@ import TableForAdmin from "../../components/shared/tables/TableForAdmin";
 import Spinner from "../../components/shared/Spinner";
 import { useSelector } from "react-redux";
 
-const DonarList = () => {
+const DonorList = () => {
   const { loading, user } = useSelector((state) => state.auth);
   const [data, setData] = useState([]);
-  const getDonarData = async (req, res) => {
+  const getDonorData = async (req, res) => {
     try {
-      const { data } = await API.get("/admin/donar-list");
+      const { data } = await API.get("/admin/donor-list");
       if (data?.success) {
-        setData(data.donarData);
+        setData(data.donorData);
       }
     } catch (error) {
       console.log(error);
@@ -20,7 +20,7 @@ const DonarList = () => {
   };
 
   useEffect(() => {
-    getDonarData();
+    getDonorData();
   }, []);
   return (
     <>
@@ -36,10 +36,10 @@ const DonarList = () => {
             </div>
           </>
         )}
-        <TableForAdmin data={data} list={"Donar List"} />
+        <TableForAdmin data={data} list={"Donor List"} />
       </Layout>
     </>
   );
 };
 
-export default DonarList;
+export default DonorList;

@@ -5,13 +5,13 @@ import Register from "./pages/auth/Register";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProtectedRoute from "./components/shared/Routes/ProtectedRoute";
-import Organistion from "./pages/DashBoard/Organistion";
-import { Donar } from "./pages/DashBoard/Donar";
+import Organisation from "./pages/DashBoard/Organisation";
+import { Donor } from "./pages/DashBoard/Donor";
 import Hospital from "./pages/DashBoard/Hospital";
 import Consumer from "./pages/DashBoard/Consumer";
 import Donation from "./pages/Donation";
 import AdminHome from "./pages/Admin/AdminHome";
-import DonarList from "./pages/Admin/DonarList";
+import DonorList from "./pages/Admin/DonorList";
 import HospitalList from "./pages/Admin/HospitalList";
 import OrgList from "./pages/Admin/OrgList";
 import HomePage from "./pages/HomePage";
@@ -36,12 +36,12 @@ function App() {
           element={<ProtectedRoute>{<Inventory />}</ProtectedRoute>}
         />
         <Route
-          path="/orgnaisation"
-          element={<ProtectedRoute>{<Organistion />}</ProtectedRoute>}
+          path="/organisation"
+          element={<ProtectedRoute>{<Organisation />}</ProtectedRoute>}
         />
         <Route
-          path="/donar"
-          element={<ProtectedRoute>{<Donar />}</ProtectedRoute>}
+          path="/donor"
+          element={<ProtectedRoute>{<Donor />}</ProtectedRoute>}
         />
         <Route
           path="/donation"
@@ -60,8 +60,8 @@ function App() {
           element={<ProtectedRoute>{<AdminHome />}</ProtectedRoute>}
         />
         <Route
-          path="/donar-list"
-          element={<ProtectedRoute>{<DonarList />}</ProtectedRoute>}
+          path="/donor-list"
+          element={<ProtectedRoute>{<DonorList />}</ProtectedRoute>}
         />
         <Route
           path="/hospital-list"

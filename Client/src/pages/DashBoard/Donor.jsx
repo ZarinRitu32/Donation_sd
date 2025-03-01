@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../../components/shared/Layout/Layout";
 import API from "../../services/API.JS";
-import Donartable from "../../components/shared/tables/Donartable";
+import Donortable from "../../components/shared/tables/Donortable";
 
-export const Donar = () => {
+export const Donor = () => {
   const [data, setData] = useState([]);
   // find donar record
-  const getDonars = async () => {
+  const getDonors = async () => {
     try {
-      const { data } = await API.get("/inventory/get-donars");
+      const { data } = await API.get("/inventory/get-donors");
       // console.log(data);
       if (data?.success) {
-        setData(data.donars);
+        setData(data.donors);
       }
     } catch (error) {
       console.log(error);
@@ -19,11 +19,11 @@ export const Donar = () => {
   };
 
   useEffect(() => {
-    getDonars();
+    getDonors();
   }, []);
   return (
     <Layout>
-      <Donartable data={data} heading={"Donar records"} />
+      <Donortable data={data} heading={"Donor records"} />
     </Layout>
   );
 };

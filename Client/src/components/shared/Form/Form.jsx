@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const roles = [
   { id: "admin", title: "Admin" },
-  { id: "oraganisation", title: "Oraganisation" },
+  { id: "organisation", title: "Organisation" },
   { id: "donor", title: "Donor" },
   { id: "hospital", title: "Hospital" },
 ];
@@ -63,7 +63,7 @@ function Form({ formType, formTitle, submitBtn }) {
                   value={roles.id}
                   name="notification-method"
                   type="radio"
-                  defaultChecked={roles.id === "doonor"}
+                  defaultChecked={roles.id === "donor"}
                   onClick={(e) => {
                     setRole(e.target.value);
                   }}
