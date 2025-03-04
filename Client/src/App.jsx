@@ -49,7 +49,7 @@ function App() {
           }
         />
         <Route
-          path="/organisation"
+          path="/orgnaisation"
           element={<ProtectedRoute>{<Organisation />}</ProtectedRoute>}
         />
         <Route
