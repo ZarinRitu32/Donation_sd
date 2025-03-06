@@ -161,13 +161,13 @@ const getRecentInventoryController = async (req, res) => {
 };
 
 // GET DONAR RECORDS
-const getDonarsController = async (req, res) => {
+const getDonorsController = async (req, res) => {
   try {
     const organisation = req.body.userId;
     // find donar?
-    const donarId = await inventoryModel.distinct("donor", { organisation });
+    const donorId = await inventoryModel.distinct("donor", { organisation });
     // console.log(donarId)
-    const donars = await userModel.find({ _id: { $in: donorId } });
+    const donors = await userModel.find({ _id: { $in: donorId } });
     // console.log(donars);
     return res.status(200).send({
       success: true,
