@@ -2,7 +2,7 @@ const express = require("express");
 const {
   createInventoryController,
   getInventoryController,
-  getDonarsController,
+  getDonorsController,
   getHospitalsController,
   getOrganisationController,
   getOrganisationForHospitalController,
@@ -35,7 +35,7 @@ router.post(
 );
 
 // get donars || get
-router.get("/get-donars", authMiddleware, getDonarsController);
+router.get("/get-donors", authMiddleware, getDonorsController);
 
 // get hospitals records || get
 router.get("/get-hospitals", authMiddleware, getHospitalsController);

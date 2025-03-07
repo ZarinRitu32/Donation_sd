@@ -244,7 +244,7 @@ const getOrganisationForHospitalController = async (req, res) => {
     const organisationId = await inventoryModel.distinct("organisation", {
       hospital,
     });
-    // console.log(donarId
+    // console.log(donorId
     const organisations = await userModel.find({
       _id: { $in: organisationId },
     });
@@ -267,7 +267,7 @@ const getOrganisationForHospitalController = async (req, res) => {
 module.exports = {
   createInventoryController,
   getInventoryController,
-  getDonarsController,
+  getDonorsController,
   getHospitalsController,
   getOrganisationController,
   getOrganisationForHospitalController,
