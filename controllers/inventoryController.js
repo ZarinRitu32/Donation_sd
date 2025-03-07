@@ -172,7 +172,7 @@ const getDonorsController = async (req, res) => {
     return res.status(200).send({
       success: true,
       message: "Donor Record Fetched Successfully",
-      donars,
+      donors,
     });
   } catch (error) {
     console.log(error);
@@ -211,7 +211,7 @@ const getHospitalsController = async (req, res) => {
 // GET ORGANISATION RECORDS
 const getOrganisationController = async (req, res) => {
   try {
-    const donar = req.body.userId;
+    const donor = req.body.userId;
     // find ORGANISATION?
     const organisationId = await inventoryModel.distinct("organisation", {
       donor,
