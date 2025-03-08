@@ -23,7 +23,7 @@ router.get(
 );
 
 // =================== Delete ==================================================
-// delete donar
+// delete donor
 router.delete("/delete-user/:id", authMiddleware, adminMiddleware, deleteUser);
 
 module.exports = router;

@@ -34,7 +34,7 @@ router.post(
   getInventoryHospitalController
 );
 
-// get donars || get
+// get donors || get
 router.get("/get-donors", authMiddleware, getDonorsController);
 
 // get hospitals records || get

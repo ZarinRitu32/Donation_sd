@@ -43,7 +43,7 @@ const getHospitalList = async (req, res) => {
   }
 };
 
-// get all organization data
+// get all organisation data
 const getOrganisationList = async (req, res) => {
   try {
     const organisationData = await userModel
@@ -51,14 +51,14 @@ const getOrganisationList = async (req, res) => {
       .sort({ createdAt: -1 });
     return res.status(200).send({
       success: true,
-      message: "organization data fetched successfully ",
+      message: "organisation data fetched successfully ",
       organisationData,
     });
   } catch (error) {
     console.log(error);
     return res.status(500).send({
       success: false,
-      message: "Error in organization List API",
+      message: "Error in organisation List API",
       error: error.message,
     });
   }
