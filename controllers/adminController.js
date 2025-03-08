@@ -1,22 +1,22 @@
 const userModel = require("../models/userModel");
 
 // get all donors data
-const getDonarList = async (req, res) => {
+const getDonorList = async (req, res) => {
   try {
-    const donarData = await userModel
-      .find({ role: "donar" })
+    const donorData = await userModel
+      .find({ role: "donor" })
       .sort({ createdAt: -1 });
     return res.status(200).send({
       success: true,
-      message: "Donar data fetched successfully ",
-      donarData,
+      message: "Donor data fetched successfully ",
+      donors: donorData,
     });
   } catch (error) {
     console.log(error);
     return res.status(500).send({
       success: false,
-      message: "Error in donar List API",
-      error,
+      message: "Error in donor List API",
+      error: error.message,
     });
   }
 };
@@ -31,14 +31,14 @@ const getHospitalList = async (req, res) => {
     return res.status(200).send({
       success: true,
       message: "hospital data fetched successfully",
-      hospitalData,
+      hospitals: hospitalData,
     });
   } catch (error) {
     console.log(error);
     return res.status(500).send({
       success: false,
       message: "Error in hospital List API",
-      error,
+      error: error.message,
     });
   }
 };
@@ -46,20 +46,20 @@ const getHospitalList = async (req, res) => {
 // get all organization data
 const getOrganisationList = async (req, res) => {
   try {
-    const organizationData = await userModel
+    const organisationData = await userModel
       .find({ role: "oraganisation" })
       .sort({ createdAt: -1 });
     return res.status(200).send({
       success: true,
       message: "organization data fetched successfully ",
-      organizationData,
+      organisationData,
     });
   } catch (error) {
     console.log(error);
     return res.status(500).send({
       success: false,
       message: "Error in organization List API",
-      error,
+      error: error.message,
     });
   }
 };
@@ -77,12 +77,12 @@ const deleteUser = async (req, res) => {
     return res.status(500).send({
       success: false,
       message: "Error while deleting user",
-      error,
+      error: error.message,
     });
   }
 };
 module.exports = {
-  getDonarList,
+  getDonorList,
   getHospitalList,
   getOrganisationList,
   deleteUser,

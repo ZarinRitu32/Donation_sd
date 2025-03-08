@@ -1,6 +1,6 @@
 const express = require("express");
 const {
-  getDonarList,
+  getDonorList,
   getHospitalList,
   getOrganisationList,
   deleteUser,
@@ -10,9 +10,10 @@ const adminMiddleware = require("../middlewares/adminMiddleware");
 const authMiddleware = require("../middlewares/authMiddleware");
 
 const router = express.Router();
+console.log("Admin Routes Loaded");
 
 // Admin routes
-router.get("/donar-list", authMiddleware, adminMiddleware, getDonarList);
+router.get("/donor-list", authMiddleware, adminMiddleware, getDonorList);
 router.get("/hospital-list", authMiddleware, adminMiddleware, getHospitalList);
 router.get(
   "/organisation-list",
