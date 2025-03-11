@@ -1,10 +1,9 @@
 import moment from "moment";
-
 export default function HospitalTable({ data, heading }) {
   return (
-    <div className="flex md:pl-64 m-8 flex-col">
+    <div className="flex md:pl-64 m-8  flex-col">
       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div className="mt-4">
+        <div className=" mt-4">
           <h1 className="flex items-center text-white mb-2 justify-center font-serif text-6xl font-bold bg-gradient-to-b from-red-600 to-pink-300 mx-8 rounded-lg">
             {heading}
           </h1>
@@ -60,10 +59,10 @@ export default function HospitalTable({ data, heading }) {
                       {record.email}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {record.phone}
+                      {record.address}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {record.address}
+                      {record.phone}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                       {moment(record.updatedAt).format("DD/MM/YYYY hh:mm A")}
