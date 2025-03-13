@@ -6,7 +6,7 @@ const {
 
 const router = express.Router();
 
-// routes
+
 
 // Get Blood Records
 router.get("/bloodGroup-data", authMiddelware, bloodGroupDetailController);
