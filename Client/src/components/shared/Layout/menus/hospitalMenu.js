@@ -2,8 +2,8 @@ import { ArchiveBoxArrowDownIcon, ConsumerIcon } from "../../Icons";
 
 export const hospitalMenue = [
   {
-    name: "Organisation",
-    href: "/organisation",
+    name: "Orgnaisation",
+    href: "/orgnaisation",
     icon: ArchiveBoxArrowDownIcon,
     current: true,
   },
