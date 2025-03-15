@@ -10,7 +10,7 @@ function HomePage() {
     } else if (user?.role === "hospital") {
       return <Navigate to={"/organisation"}></Navigate>;
     } else if (user?.role === "donor") {
-      return <Navigate to={"/orgnaisation"}></Navigate>;
+      return <Navigate to={"/organisation"}></Navigate>;
     } else if (user?.role === "admin") {
       return <Navigate to={"/donor-list"}></Navigate>;
     }
