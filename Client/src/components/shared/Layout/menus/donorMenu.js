@@ -2,8 +2,8 @@ import { ArchiveBoxArrowDownIcon, DonorIcon } from "../../Icons";
 
 export const donorMenue = [
   {
-    name: "Orgnaisation",
-    href: "/orgnaisation",
+    name: "Organisation",
+    href: "/organisation",
     icon: ArchiveBoxArrowDownIcon,
     current: true,
   },
