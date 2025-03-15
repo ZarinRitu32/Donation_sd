@@ -9,4 +9,3 @@ export const hospitalMenue = [
   },
   { name: "Consumer", href: "/consumer", icon: ConsumerIcon, current: false },
 ];
-
