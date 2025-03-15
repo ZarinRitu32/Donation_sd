@@ -3,6 +3,7 @@ import API from "../../services/API.JS";
 import Layout from "../../components/shared/Layout/Layout";
 import HospitalTable from "../../components/shared/tables/HospitalTable";
 
+
 function Hospital() {
   const [data, setData] = useState([]);
   const getHospitalData = async () => {
